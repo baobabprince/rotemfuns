@@ -1,0 +1,9 @@
+extract.biom	extract.biom
+extract.biom.table	extract.biom.table
+extract.qiime	extract.qiime
+jaccard	jaccard
+read_biom_qzv	read_biom_qzv
+read_core_pcoa	read_core_pcoa
+read_taxonomy	read_taxonomy
+theme_Publication	theme_Publication
+theme_rh	theme_rh

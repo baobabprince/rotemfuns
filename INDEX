@@ -1,0 +1,18 @@
+extract.biom            extract biom table and convert it to tsv
+                        format. The output of the conversion will be in
+                        the original folder.
+extract.biom.table      extract biom table in qiime file (qza) and
+                        convert it to tsv format. The output of the
+                        conversion will be in the original folder.
+extract.qiime           extract qiime files by a specific file
+                        extension
+jaccard                 Return jaccard index for two lists
+read_biom_qzv           Read biom table from qza file.
+read_core_pcoa          Read results of PCoA of core metrics files from
+                        qza file to an R object
+read_taxonomy           extract taxonomy file from qiime and return it
+                        as a table, splited to taxonomic groups
+theme_Publication       ggplot class theme with black lines and text
+                        From Koundinya Desiraju
+                        https://rpubs.com/Koundy/71792
+theme_rh                ggplot class theme with black lines and text

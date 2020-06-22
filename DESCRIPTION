@@ -1,0 +1,13 @@
+Package: rotemfuns
+Type: Package
+Title: My functions
+Version: 0.1.0
+Author: Rotem Hadar
+Maintainer: The package maintainer <Rotem.hadar@sheba.health.gov.il>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: Belong to me
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Built: R 3.6.0; ; 2020-05-05 12:20:46 UTC; unix
