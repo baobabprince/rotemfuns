@@ -32,3 +32,30 @@ extract.biom.table = function(filepath) {
                      , "--to-tsv")
   system(biom.cmd)
 }
+
+#' extract biom table and convert it to tsv format.
+#' The output of the conversion will be in the original folder.
+#'
+#' @param filepath Path of the qza of the biom table to be converted
+#' @examples
+#' extract.biom.table("path\to\qiime\file\biom")
+#' @export
+extract.biom = function(filepath){
+  # filepath = "/pita/users/rotem/firsttry/res/table.biom"
+  library(tools)
+  library(tibble)
+  library(filesstrings)
+  dir_name = file_path_sans_ext(filepath)
+
+  latest_file_changed =
+  dir_name %>%
+  dir(full.names = T) %>%
+  file.info() %>%
+  rownames_to_column() %>%
+  top_n(1, ctime)
+
+biom.cmd = paste(  "biom convert -i", latest_file_changed[1,1]
+                   , "-o", paste0(file_path_sans_ext(filepath), ".tsv")
+                   , "--to-tsv")
+system(biom.cmd)
+}

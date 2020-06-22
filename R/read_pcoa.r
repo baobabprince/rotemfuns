@@ -8,11 +8,11 @@
 
 read_core_pcoa = function(filepath){
   # filepath = "/pita/users/rotem/DB8/rat/res/core-metrics-results/unweighted_unifrac_pcoa_results.qza"
-  source("/pita/users/rotem/scripts/extract.qiime.R")
+  # source("/pita/users/rotem/scripts/extract.qiime.R")
   extract.qiime(filepath, "*txt")
   dirpath = tools::file_path_sans_ext(filepath)
-  file_loc = list.files(dirpath, full.names = T)
-  result = read.table(file_loc[1], skip = 9, fill = T)
+  file_loc = list.files(dirpath, full.names = T, pattern = "*txt")
+  result = read.table(file_loc[1], skip = 9, fill = T, row.names = 1)
   system(paste("rm -r", dirpath))
   result = result[1:dim(result)[2]-1,]
   result$V2 = as.numeric(as.character(result$V2 ))
