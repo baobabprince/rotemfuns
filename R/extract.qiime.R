@@ -4,13 +4,13 @@
 #' @param extension File extension to unzipped from filepath. format \code{'*csv'}.
 #' @return Extracted files with \code{extension} in the qiime \code{filepath} file.
 #' @examples
-#' extract.qiime("path\to\qiime\file\qzv", extension = "*csv")
+#' extract.qiime("path/to/qiime/file/qzv", extension = "*csv")
 #' @export
 
 extract.qiime = function (filepath, extension) {
   library(tools)
   library(filesstrings)
-  shortname = file_path_sans_ext(filepath)
+  shortname = file_path_sans_ext(basename(filepath))
   dir.create(shortname)
   tozip = unzip(filepath, exdir = shortname, list = T)[,1]
   unzip(  filepath
@@ -32,3 +32,6 @@ extract.qiime = function (filepath, extension) {
 
 # filepath = "/pita/users/rotem/firsttry/res/taxonomy.qzv"
 # extension = "*tsv"
+# filepath = "/pita/pub/data/16S_DBs/processed/16S_DB12/taxonomy.qza"
+
+

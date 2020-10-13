@@ -11,7 +11,7 @@ read_taxonomy = function(filepath){
   tempdir = dirname(unzip(filepath, list = T)[1,]$Name)
   toextract = file.path(tempdir, "data", "taxonomy.tsv")
   unzip(filepath, files = toextract, junkpaths = T)
-  temp = read.csv("taxonomy.tsv", sep = "\t")
+  temp = read.csv("taxonomy.tsv", sep = "\t", row.names = 1)
   file.remove("taxonomy.tsv")
   temp_split = lapply(lapply(str_split(temp$Taxon, ";"), t), data.frame) %>%
     rbind.fill()

@@ -5,7 +5,6 @@
 #' @examples
 #' read_biom_qzv("path\to\qiime\file\faith-pd----.qzv")
 #' @export
-
 read_faith_qzv = function(filepath){
   # filepath = "/pita/users/rotem/eyes/human/Feaces/res/core-metrics-results/faith-pd-correlation.qzv"
   # source("/pita/users/rotem/scripts/extract.qiime.R")

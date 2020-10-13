@@ -25,3 +25,20 @@ read_biom = function(biom_path){
   file.remove(tsv_path)
   return(biom)
 }
+
+#' read big biom file and return only biom with the specific samples.
+#' also remove empty features <1
+#'
+#' @param biom_path path to input biom file to be imported.
+#' @examples
+#' biom_specific_samples("/pita/pub/data/16S_DBs/processed/16S_DB1-11_merged/feature-table.biom", "DB1.001")
+#' @export
+biom_specific_samples = function(biom_path, samples) {
+  biom = read_biom(biom_path)
+  colnums = na.omit(match(as.character(samples), names(biom)))
+
+  filtered_biom = biom[,c(1,colnums)]
+  filtered_biom = tibble::column_to_rownames(names(filtered_biom)[1])
+
+  dplyr::distinct(filtered_biom, .keep_all = T)
+}
